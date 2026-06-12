@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://apache.org"
-         xmlns:xsi="http://w3.org"
-         xsi:schemaLocation="http://apache.org http://apache.org">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.serviceplataform</groupId>
     <artifactId>service-marketplace</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -15,13 +17,11 @@
     </properties>
 
     <dependencies>
-        <!-- JavaFX Controls -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
-        <!-- JavaFX FXML para as telas -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
@@ -31,7 +31,6 @@
 
     <build>
         <plugins>
-            <!-- Plugin para rodar o JavaFX diretamente pelo Maven -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
