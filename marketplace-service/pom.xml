@@ -39,6 +39,64 @@
                     <mainClass>com.serviceplataform.App</mainClass>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.serviceplataform.App</mainClass>
+                        </manifest>
+                    </archive>
+                    <finalName>marketplace</finalName>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.6.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.panteleyev</groupId>
+                <artifactId>jpackage-maven-plugin</artifactId>
+                <version>1.6.5</version>
+                <configuration>
+                    <name>ServiceMarketplace</name>
+                    <appVersion>1.0.0</appVersion>
+                    <vendor>ServicePlataform</vendor>
+                    <mainJar>marketplace.jar</mainJar>
+                    <mainClass>com.serviceplataform.App</mainClass>
+                    <input>${project.build.directory}</input>
+                    <destination>${project.build.directory}/installer</destination>
+                    <type>EXE</type>
+                    <winDirChooser>true</winDirChooser>
+                    <winMenu>true</winMenu>
+                    <winShortcut>true</winShortcut>
+                    <modulePath>${project.build.directory}/libs</modulePath>
+                    <javaOptions>
+                        <javaOption>--module-path</javaOption>
+                        <javaOption>${project.build.directory}/libs</javaOption>
+                        <javaOption>--add-modules</javaOption>
+                        <javaOption>javafx.controls,javafx.fxml</javaOption>
+                    </javaOptions>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
