@@ -1,4 +1,4 @@
-package com.serviceplataform.controllers;
+package com.serviceplataform.Interface;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

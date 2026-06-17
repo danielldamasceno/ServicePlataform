@@ -1,11 +1,7 @@
-com\serviceplataform\controllers\DeletarController.class
 com\serviceplataform\App.class
+com\serviceplataform\Pagamentos\Pagamentos.class
+com\serviceplataform\Servicos\Pedido.class
 com\serviceplataform\controllers\InterfaceController.class
+com\serviceplataform\Servicos\Deletar.class
 com\serviceplataform\Servicos\Cadastrar.class
 com\serviceplataform\Servicos\Pesquisar.class
-com\serviceplataform\controllers\CadastrarController.class
-com\serviceplataform\Pagamentos\Pagamentos.class
-com\serviceplataform\controllers\PedidoController.class
-com\serviceplataform\controllers\PesquisarController.class
-com\serviceplataform\Servicos\Pedido.class
-com\serviceplataform\Servicos\Deletar.class
