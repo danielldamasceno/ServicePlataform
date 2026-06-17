@@ -1,5 +1,9 @@
 package com.serviceplataform.Interface;
 
+import com.serviceplataform.Servicos.Pedido;
+import com.serviceplataform.Servicos.ServiceRepository;
+import com.serviceplataform.Servicos.Servico;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,8 +26,17 @@ public class PedidoController {
 
     @FXML
     public void initialize() {
-        // TODO: carregar serviços do banco de dados
-        choiceService.getItems().addAll("Serviço A", "Serviço B", "Serviço C");
+        // carregar serviços do arquivo (ServiceRepository)
+        ServiceRepository repo = new ServiceRepository();
+        java.util.List<Servico> all = repo.listAll();
+        if (all != null && !all.isEmpty()) {
+            for (Servico s : all) {
+                choiceService.getItems().add(s.getNome());
+            }
+        } else {
+            choiceService.getItems().addAll("Serviço A", "Serviço B", "Serviço C");
+        }
+        if (!choiceService.getItems().isEmpty()) choiceService.setValue(choiceService.getItems().get(0));
         choicePayment.getItems().addAll("PIX", "Cartão de Crédito", "Boleto");
     }
 
@@ -33,8 +46,21 @@ public class PedidoController {
         String servico = choiceService.getValue();
         String pagamento = choicePayment.getValue();
 
-        // TODO: salvar pedido no banco de dados
-        System.out.println("Pedido: " + nome + " | " + servico + " | " + pagamento);
+        double preco = 0;
+        ServiceRepository repo = new ServiceRepository();
+        Servico s = repo.findByName(servico);
+        if (s != null) {
+            preco = s.getPreco();
+        }
+
+        Pedido pedido = new Pedido(nome, servico, preco, pagamento);
+        boolean ok = pedido.processarPagamento();
+        if (ok) {
+            valorTotal.setText(String.format("R$ %.2f", pedido.getValorFinal()));
+            System.out.println("Pedido processado: " + nome + " | " + servico + " | " + pagamento + " | total R$ " + pedido.getValorFinal());
+        } else {
+            System.out.println("Falha ao processar pagamento para: " + nome);
+        }
     }
 
     @FXML

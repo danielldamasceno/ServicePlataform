@@ -7,9 +7,9 @@
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="630.0" prefWidth="472.0"
-      xmlns="http://javafx.com/javafx/26"
+      xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.serviceplataform.controllers.InterfaceController">
+      fx:controller="com.serviceplataform.Interface.InterfaceController">
    <children>
       <ImageView fitHeight="630.0" fitWidth="472.0">
          <image>

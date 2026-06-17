@@ -1,5 +1,8 @@
 package com.serviceplataform.Interface;
 
+import com.serviceplataform.Servicos.ServiceRepository;
+import com.serviceplataform.Servicos.Servico;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,9 +23,17 @@ public class PesquisarController {
     @FXML
     private void pesquisar(ActionEvent event) {
         String nome = txtNome.getText();
-
-        // TODO: buscar no banco de dados
-        System.out.println("Pesquisando por: " + nome);
+        if (nome == null || nome.isEmpty()) return;
+        ServiceRepository repo = new ServiceRepository();
+        Servico s = repo.findByName(nome);
+        if (s != null) {
+            txtDescricao.setText(s.getDescricao());
+            txtValor.setText(String.valueOf(s.getPreco()));
+        } else {
+            txtDescricao.setText("");
+            txtValor.setText("");
+            System.out.println("Serviço não encontrado: " + nome);
+        }
     }
 
     @FXML

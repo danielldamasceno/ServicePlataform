@@ -1,5 +1,8 @@
 package com.serviceplataform.Interface;
 
+import com.serviceplataform.Servicos.ServiceRepository;
+import com.serviceplataform.Servicos.Servico;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +26,14 @@ public class CadastrarController {
         String descricao = txtDescricao.getText();
         String valor = txtValor.getText();
 
-        // TODO: salvar no banco de dados
-        System.out.println("Cadastrando: " + nome + " | " + descricao + " | R$" + valor);
+            double preco = 0;
+            try { preco = Double.parseDouble(valor.replace(',', '.')); } catch (Exception e) { }
+            Servico s = new Servico(nome, descricao, preco);
+            ServiceRepository repo = new ServiceRepository();
+            boolean ok = repo.save(s);
+            if (ok) System.out.println("Cadastrado (arquivo): " + s.getNome());
+            else System.out.println("Falha ao gravar: " + s.getNome());
+            txtNome.clear(); txtDescricao.clear(); txtValor.clear();
     }
 
     @FXML

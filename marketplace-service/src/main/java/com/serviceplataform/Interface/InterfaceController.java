@@ -1,4 +1,4 @@
-package com.serviceplataform.controllers;
+package com.serviceplataform.Interface;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,8 +33,15 @@ public class InterfaceController {
 
     @FXML
     private void abrirListar(ActionEvent event) {
-        // TODO: implementar quando a tela de listagem estiver pronta
-        System.out.println("Listar Serviços - em breve!");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Listar.fxml"));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+            stage.setTitle("Listar Serviços");
+            stage.setScene(new Scene(root));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
