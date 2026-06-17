@@ -1,7 +1,12 @@
+com\serviceplataform\Interface\PedidoController.class
 com\serviceplataform\App.class
+com\serviceplataform\Interface\CadastrarController.class
+com\serviceplataform\Interface\PesquisarController.class
 com\serviceplataform\Pagamentos\Pagamentos.class
 com\serviceplataform\Servicos\Pedido.class
-com\serviceplataform\controllers\InterfaceController.class
+com\serviceplataform\Interface\InterfaceController.class
+module-info.class
 com\serviceplataform\Servicos\Deletar.class
 com\serviceplataform\Servicos\Cadastrar.class
+com\serviceplataform\Interface\DeletarController.class
 com\serviceplataform\Servicos\Pesquisar.class
