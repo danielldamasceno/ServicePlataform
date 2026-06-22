@@ -18,6 +18,13 @@ public class ServiceRepository {
         this(Paths.get(System.getProperty("user.dir"), "services.csv"));
     }
 
+    public void cadastrar(Servico servico) {
+        if (servico != null) {
+            //listaServicos.add(servico);
+            System.out.println("Serviço '" + servico.getNome() + "' cadastrado com sucesso!");
+        }
+    }
+
     public ServiceRepository(Path file) {
         this.file = file;
         try {
