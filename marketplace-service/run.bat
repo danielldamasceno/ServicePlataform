@@ -1,3 +1,3 @@
 @echo off
-mvn javafx:run
+mvn compile exec:java -Dexec.mainClass="com.serviceplataform.App"
 pause
