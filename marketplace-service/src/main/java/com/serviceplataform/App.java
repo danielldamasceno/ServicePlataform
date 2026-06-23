@@ -73,7 +73,6 @@ public class App extends JFrame {
         void irPara(String nomeCard);
     }
 
-
     public interface TelaAtualizavel {
         void aoExibir();
     }
