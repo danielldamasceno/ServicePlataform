@@ -1,33 +1,24 @@
 package com.serviceplataform.Servicos;
-
-/**
- * Representa um serviço disponível para contratação RF01.
- */
 public class Servico {
-
     private String nome;
     private String descricao;
     private double valor;
 
+    // Construtor
     public Servico(String nome, String descricao, double valor) {
-        if (nome == null || nome.isBlank()) {
-            throw new IllegalArgumentException("O nome do serviço não pode ser vazio.");
-        }
-        if (valor < 0) {
-            throw new IllegalArgumentException("O valor do serviço não pode ser negativo.");
-        }
-        this.nome = nome;
-        this.descricao = descricao;
-        this.valor = valor;
+        setNome(nome);
+        setDescricao(descricao);
+        setValor(valor);
     }
 
+    // Getters e Setters com as Regras de Negócio
     public String getNome() {
         return nome;
     }
 
     public void setNome(String nome) {
-        if (nome == null || nome.isBlank()) {
-            throw new IllegalArgumentException("O nome do serviço não pode ser vazio.");
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new IllegalArgumentException("O nome do serviço não poderá ser vazio.");
         }
         this.nome = nome;
     }
@@ -46,13 +37,13 @@ public class Servico {
 
     public void setValor(double valor) {
         if (valor < 0) {
-            throw new IllegalArgumentException("O valor do serviço não pode ser negativo.");
+            throw new IllegalArgumentException("O valor do serviço não poderá ser negativo.");
         }
         this.valor = valor;
     }
 
     @Override
     public String toString() {
-        return nome;
+        return "Nome: " + nome + " | Descrição: " + descricao + " | Valor: R$ " + String.format("%.2f", valor);
     }
 }
