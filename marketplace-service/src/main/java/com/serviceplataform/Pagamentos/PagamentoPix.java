@@ -1,11 +1,7 @@
 package com.serviceplataform.Pagamentos;
 
 /**
- * Pagamento via PIX.
- * Regra de negócio (RF02): não possui taxa adicional, valor final = valor do serviço.
- *
- * TODO (integrante responsável pela lógica de pagamentos):
- *   - Confirmar/implementar o cálculo abaixo conforme regra de negócio definitiva.
+Pagamento via PIX.
  */
 public class PagamentoPix implements Pagamento {
 

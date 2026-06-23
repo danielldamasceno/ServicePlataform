@@ -19,8 +19,7 @@ import com.serviceplataform.App;
 import com.serviceplataform.Servicos.CatalogoServicos;
 
 /**
- * Tela de remoção de serviço por nome (complementa o RF01 - gerenciamento
- * dos serviços disponíveis).
+ * Tela de remoção de serviço por nome RF01
  */
 public class DeletarPanel extends JPanel {
 
@@ -114,8 +113,6 @@ public class DeletarPanel extends JPanel {
             return;
         }
 
-        // CatalogoServicos.removerPorNome() implementa a regra de remoção
-        // (ver TODO na classe CatalogoServicos).
         boolean removido = CatalogoServicos.getInstancia().removerPorNome(nome);
 
         if (removido) {

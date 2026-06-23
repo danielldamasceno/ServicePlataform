@@ -1,12 +1,8 @@
 package com.serviceplataform.Pagamentos;
 
 /**
- * Pagamento via Cartão de Crédito.
- * Regra de negócio (RF02): taxa de 3% sobre o valor do serviço.
- *
- * TODO (integrante responsável pela lógica de pagamentos):
- *   - Validar a constante TAXA_PERCENTUAL e o arredondamento usado.
- */
+Pagamento via Cartão de Crédito.
+*/
 public class PagamentoCartaoCredito implements Pagamento {
 
     private static final double TAXA_PERCENTUAL = 0.03; // 3%

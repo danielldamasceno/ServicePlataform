@@ -24,17 +24,7 @@ import com.serviceplataform.Servicos.CatalogoServicos;
 import com.serviceplataform.Servicos.Servico;
 
 /**
- * Tela de realização de pedido (RF02, RF03 / RF04 - Opção 4).
- *
- * Implementa App.TelaAtualizavel: sempre que esta tela é exibida, o combo
- * de serviços é recarregado a partir de CatalogoServicos.listarTodos() —
- * assim, se um serviço for cadastrado ou removido em outra tela, o Pedido
- * sempre mostra a lista atualizada.
- *
- * O combo de formas de pagamento vem de PagamentoFactory.listarNomesDisponiveis():
- * quando a Etapa 2 registrar novas formas de pagamento na fábrica
- * (Criptomoeda, Carteira Digital, Débito), elas aparecem aqui automaticamente,
- * sem precisar alterar esta classe.
+ * Tela de realização de pedido RF02, RF03 , RF04
  */
 public class PedidoPanel extends JPanel implements App.TelaAtualizavel {
 
@@ -148,8 +138,6 @@ public class PedidoPanel extends JPanel implements App.TelaAtualizavel {
             return;
         }
 
-        // PagamentoFactory.criar() + Pagamento.calcularValorFinal() concentram
-        // toda a regra de taxas (RF02) — esta tela só exibe o resultado.
         Pagamento pagamento = PagamentoFactory.criar(formaPagamento);
         double valorFinal = pagamento.calcularValorFinal(servico.getValor());
 
@@ -178,10 +166,6 @@ public class PedidoPanel extends JPanel implements App.TelaAtualizavel {
         double valorOriginal = servico.getValor();
         double taxa = pagamento.calcularTaxa(valorOriginal);
         double valorFinal = pagamento.calcularValorFinal(valorOriginal);
-
-        // TODO (integrante responsável pela lógica de pedidos): caso seja necessário
-        // persistir o pedido (ex: em uma classe Pedido / lista de histórico),
-        // este é o ponto exato para criar e salvar esse objeto antes de exibir o resumo.
 
         exibirResumoPedido(nomeCliente, servico, pagamento, valorOriginal, taxa, valorFinal);
     }

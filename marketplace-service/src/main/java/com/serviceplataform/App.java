@@ -18,11 +18,7 @@ import com.serviceplataform.Interface.PedidoPanel;
 import com.serviceplataform.Interface.PesquisarPanel;
 
 /**
- * Janela principal da aplicação (equivalente ao antigo App.java + Interface.fxml).
- *
- * Usa CardLayout para alternar entre as telas (painéis), sem precisar abrir
- * uma janela nova para cada uma — é o equivalente em Swing ao FXMLLoader +
- * Stage.setScene() usado na versão JavaFX.
+ * Janela principal
  */
 public class App extends JFrame {
 
@@ -64,12 +60,6 @@ public class App extends JFrame {
         cardContainer.add(painel, nomeCard);
     }
 
-    /**
-     * Troca a tela visível para o card com o nome informado (ex: App.CARD_CADASTRAR).
-     * Telas que implementam TelaAtualizavel têm seus dados recarregados
-     * automaticamente sempre que voltam a ficar visíveis (ex: ListarPanel e
-     * PedidoPanel, que dependem do CatalogoServicos).
-     */
     private void irPara(String nomeCard) {
         JPanel destino = telas.get(nomeCard);
         if (destino instanceof TelaAtualizavel) {
@@ -78,19 +68,12 @@ public class App extends JFrame {
         cardLayout.show(cardContainer, nomeCard);
     }
 
-    /**
-     * Interface funcional usada pelos painéis para solicitar troca de tela,
-     * sem precisar conhecer App nem CardLayout diretamente.
-     */
     @FunctionalInterface
     public interface Navegacao {
         void irPara(String nomeCard);
     }
 
-    /**
-     * Implementada por painéis que precisam recarregar dados sempre que
-     * voltam a ficar visíveis (ex: lista de serviços, combo de pedido).
-     */
+
     public interface TelaAtualizavel {
         void aoExibir();
     }

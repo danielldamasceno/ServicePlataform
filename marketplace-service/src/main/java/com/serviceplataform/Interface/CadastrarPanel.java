@@ -20,7 +20,7 @@ import com.serviceplataform.Servicos.CatalogoServicos;
 import com.serviceplataform.Servicos.Servico;
 
 /**
- * Tela de cadastro de serviço (RF01 / RF04 - Opção 2).
+ * Tela de cadastro de serviço RF01 / RF04
  */
 public class CadastrarPanel extends JPanel {
 
@@ -119,17 +119,13 @@ public class CadastrarPanel extends JPanel {
 
         double valor;
         try {
-            // TODO (integrante responsável pela lógica): caso o formato de entrada
-            // mude (ex: aceitar "R$ 150,00" com vírgula), ajustar o parsing aqui.
             valor = Double.parseDouble(valorTexto.replace(",", "."));
         } catch (NumberFormatException e) {
-            exibirErro("Valor inválido. Informe um número, ex: 150.00");
+            exibirErro("Valor inválido. Tente novamente");
             return;
         }
 
         try {
-            // Servico() e CatalogoServicos.cadastrar() validam as regras de negócio
-            // (nome não vazio, valor não negativo) — ver TODOs nessas classes.
             Servico novoServico = new Servico(nome, descricao, valor);
             CatalogoServicos.getInstancia().cadastrar(novoServico);
 

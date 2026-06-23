@@ -18,17 +18,7 @@ import com.serviceplataform.Servicos.CatalogoServicos;
 import com.serviceplataform.Servicos.Servico;
 
 /**
- * Tela de listagem de serviços (RF01 / RF04 - Opção 1).
- *
- * Implementa App.TelaAtualizavel: sempre que esta tela é exibida (usuário
- * clica em "Listar Serviços" no menu), a tabela é recarregada automaticamente
- * a partir de CatalogoServicos.listarTodos() — não é necessário clicar em
- * "Atualizar" manualmente, embora o botão também esteja disponível.
- *
- * Esta tela já está totalmente funcional, pois depende apenas de
- * CatalogoServicos.listarTodos(). Quando o integrante responsável
- * implementar a lógica em CatalogoServicos, esta tela passará a exibir
- * os dados reais automaticamente, sem precisar de nenhuma alteração aqui.
+ Tela de listagem de serviços RF01 / RF04.
  */
 public class ListarPanel extends JPanel implements App.TelaAtualizavel {
 

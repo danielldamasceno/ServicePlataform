@@ -5,20 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * Responsável por armazenar e gerenciar os serviços cadastrados (RF01).
- *
- * Implementado como Singleton: cada tela (JPanel) é independente, então usar
- * getInstancia() garante que TODAS as telas compartilhem a mesma lista de
- * serviços em memória, sem precisar passar o catálogo manualmente entre painéis.
- *
- * TODO (integrante responsável pela lógica de serviços):
- *   - Implementar os métodos abaixo seguindo as regras de negócio do RF01:
- *       * cadastrar(): nome não pode ser vazio, valor não pode ser negativo;
- *       * o sistema deve iniciar com pelo menos 3 serviços cadastrados
- *         (ver bloco de inicialização no construtor privado, já com TODO);
- *   - As assinaturas dos métodos já correspondem ao que a UI espera consumir,
- *     então não é necessário alterar nenhum painel — só implementar
- *     o corpo de cada método aqui.
+Armazena e gerencia os serviços cadastrados (RF01).
  */
 public class CatalogoServicos {
 
@@ -28,11 +15,6 @@ public class CatalogoServicos {
 
     private CatalogoServicos() {
         servicos = new ArrayList<>();
-        // TODO: o sistema deve iniciar com pelo menos 3 serviços cadastrados (RF01).
-        // Exemplo (ajustar valores/descrições conforme o documento da atividade):
-        // servicos.add(new Servico("Criação de Logo", "Criação de identidade visual", 150.00));
-        // servicos.add(new Servico("Desenvolvimento de Site", "Criação de site institucional", 2500.00));
-        // servicos.add(new Servico("Consultoria em TI", "Consultoria técnica especializada", 400.00));
     }
 
     public static synchronized CatalogoServicos getInstancia() {

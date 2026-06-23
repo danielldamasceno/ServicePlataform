@@ -17,17 +17,7 @@ import javax.swing.SwingConstants;
 import com.serviceplataform.App;
 
 /**
- * Tela de menu principal (RF04). Equivalente ao antigo Interface.fxml +
- * InterfaceController.
- *
- * Opções:
- *   1 - Listar serviços
- *   2 - Cadastrar serviço
- *   3 - Buscar serviço
- *   4 - Realizar pedido
- *   5 - Sair
- * (+ Remover serviço, usado pela tela de exclusão que não estava no menu
- *   original em texto, mas é necessária para o RF01 funcionar por completo)
+ * Tela de menu principal RF04.
  */
 public class MenuPanel extends JPanel {
 

@@ -21,11 +21,7 @@ import com.serviceplataform.Servicos.CatalogoServicos;
 import com.serviceplataform.Servicos.Servico;
 
 /**
- * Tela de busca de serviço por nome (RF01 / RF04 - Opção 3).
- *
- * Diferente da tela de Cadastro: aqui só o campo "Nome" é editável. Descrição
- * e Valor são apenas exibição do resultado da busca (somente leitura),
- * preenchidos automaticamente quando o serviço é encontrado.
+ * Tela de busca de serviço por nome RF01 / RF04
  */
 public class PesquisarPanel extends JPanel {
 
@@ -127,17 +123,12 @@ public class PesquisarPanel extends JPanel {
 
     private void pesquisar() {
         String nome = txtNome.getText();
-
-        // Usamos isBlank() (e não == "") porque == compara referência de
-        // objeto em Java, não o conteúdo da String — esse era o bug da
-        // versão anterior em JavaFX.
+        
         if (nome.isBlank()) {
             exibirAviso("Preencha o campo 'Busca'");
             return;
         }
 
-        // CatalogoServicos.buscarPorNome() é quem implementa a regra de busca
-        // (ver TODO na classe CatalogoServicos). Aqui só consumimos o resultado.
         Optional<Servico> resultado = CatalogoServicos.getInstancia().buscarPorNome(nome);
 
         if (resultado.isPresent()) {
