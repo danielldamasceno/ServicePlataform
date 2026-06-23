@@ -10,6 +10,12 @@ public class Servico {
     private double valor;
 
     public Servico(String nome, String descricao, double valor) {
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("O nome do serviço não pode ser vazio.");
+        }
+        if (valor < 0) {
+            throw new IllegalArgumentException("O valor do serviço não pode ser negativo.");
+        }
         this.nome = nome;
         this.descricao = descricao;
         this.valor = valor;
@@ -20,6 +26,9 @@ public class Servico {
     }
 
     public void setNome(String nome) {
+        if (nome == null || nome.isBlank()) {
+            throw new IllegalArgumentException("O nome do serviço não pode ser vazio.");
+        }
         this.nome = nome;
     }
 
@@ -36,6 +45,9 @@ public class Servico {
     }
 
     public void setValor(double valor) {
+        if (valor < 0) {
+            throw new IllegalArgumentException("O valor do serviço não pode ser negativo.");
+        }
         this.valor = valor;
     }
 

@@ -64,8 +64,8 @@ public class MenuPanel extends JPanel {
         painel.add(criarBotaoMenu("2 - Cadastrar Serviço", () -> navegacao.irPara(App.CARD_CADASTRAR)));
         painel.add(criarBotaoMenu("3 - Buscar Serviço", () -> navegacao.irPara(App.CARD_PESQUISAR)));
         painel.add(criarBotaoMenu("4 - Realizar Pedido", () -> navegacao.irPara(App.CARD_PEDIDO)));
-        painel.add(criarBotaoMenu("Remover Serviço", () -> navegacao.irPara(App.CARD_DELETAR)));
-        painel.add(criarBotaoMenu("5 - Sair", () -> System.exit(0)));
+        painel.add(criarBotaoMenu("5 - Remover Serviço", () -> navegacao.irPara(App.CARD_DELETAR)));
+        painel.add(criarBotaoMenu("6 - Sair", () -> System.exit(0)));
 
         return painel;
     }

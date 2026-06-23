@@ -2,9 +2,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run JavaFX",
+      "label": "Run App",
       "type": "shell",
-      "command": "mvn javafx:run",
+      "command": "mvn compile exec:java -Dexec.mainClass=com.serviceplataform.App",
       "options": {
         "cwd": "${workspaceFolder}/ServicePlataform/marketplace-service"
       },
