@@ -23,6 +23,9 @@ public final class PagamentoFactory {
 
     private static void registrarFormasPadrao() {
         registrar("PIX", PagamentoPix::new);
+        registrar("Carteira Digital", PagamentoCarteiraDigital::new);
+        registrar("Débito", PagamentoDebito::new);
+        registrar("Criptomoeda", PagamentoCriptomoeda::new);
         registrar("Cartão de Crédito", PagamentoCartaoCredito::new);
         registrar("Boleto Bancário", PagamentoBoleto::new);
     }
